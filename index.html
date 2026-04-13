@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rengts Family</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- LOADING -->
+    <div id="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <h1>Rengts Family</h1>
+            <p>Yükleniyor...</p>
+        </div>
+    </div>
+
+    <!-- MÜZİK (GİZLİ PLAYER) -->
+    <audio id="music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- TEST PLAYER (İSTERSEN SİL) -->
+    <audio controls style="position:fixed; bottom:10px; left:10px; z-index:999;">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- MÜZİK BUTONU -->
+    <button class="music-btn" onclick="startMusic()">🎵 Müziği Başlat</button>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <button onclick="toggleMenu()">Familyin Ownerleri</button>
+    </div>
+
+    <!-- MENU -->
+    <div class="menu" id="menu">
+        <p>Dc: rengtswoxes</p>
+        <p>Dc: ytlonysoraz4706</p>
+    </div>
+
+    <!-- YILDIZ -->
+    <div class="stars"></div>
+
+    <!-- ANA İÇERİK -->
+    <div class="container" id="mainContent">
+
+        <img src="image.png" class="logo">
+
+        <h1>Rengts Family</h1>
+
+        <p>
+            Merhaba biz Rengts Family olarak türkiyenin en büyük discord familylerinizdeyiz sende gelip bize katılabilirsin
+            aktif kadromuz ve disiplinliyiz türlü türlü etkinlikler yapıoruz haydi sende gel aramıza katıl.
+        </p>
+
+        <a href="https://discord.gg/aHjhtNEm" target="_blank" class="btn">
+            Discord'a Katıl
+        </a>
+
+    </div>
+
+    <!-- SCRIPT -->
+    <script>
+        function toggleMenu() {
+            document.getElementById("menu").classList.toggle("active");
+        }
+
+        function startMusic() {
+            const music = document.getElementById("music");
+            music.muted = false;
+            music.volume = 0.5;
+            music.play().catch(() => {});
+        }
+
+        // SAYFAYA TIKLAYINCA MÜZİK
+        document.addEventListener("click", () => {
+            startMusic();
+        }, { once: true });
+
+        // LOADING
+        window.onload = () => {
+            setTimeout(() => {
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("mainContent").style.display = "flex";
+            }, 2000);
+        };
+    </script>
+
+</body>
+</html>
